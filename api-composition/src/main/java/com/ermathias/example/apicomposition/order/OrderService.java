@@ -20,7 +20,6 @@ public class OrderService {
     Flux<OrderDTO> getAllOrders() {
         return orderClientService.getAllOrders()
                 .flatMap(orderDTO -> customerClientService.getCustomerById(orderDTO.getCustomerId())
-                        .subscribeOn(Schedulers.parallel())
                         .flatMap(customerDTO -> {
                             orderDTO.setCustomerName(customerDTO.getName());
                             return Mono.just(orderDTO);
