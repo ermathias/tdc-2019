@@ -10,7 +10,7 @@ import reactor.core.publisher.Flux;
 @AllArgsConstructor
 public class OrderClientService {
 
-    private WebClientConfiguration webClientConfiguration;
+    private final WebClientConfiguration webClientConfiguration;
 
     Flux<OrderDTO> getAllOrders() {
         return webClientConfiguration.getOrderWebClient()

@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CustomerController {
 
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
 
     @GetMapping(value = "/customers")
     public ResponseEntity<List<Customer>> listAllCustomers() {

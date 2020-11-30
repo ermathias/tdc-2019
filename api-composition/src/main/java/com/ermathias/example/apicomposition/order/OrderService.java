@@ -13,9 +13,9 @@ import java.util.Comparator;
 @AllArgsConstructor
 public class OrderService {
 
-    private OrderClientService orderClientService;
+    private final OrderClientService orderClientService;
 
-    private CustomerClientService customerClientService;
+    private final CustomerClientService customerClientService;
 
     Flux<OrderDTO> getAllOrders() {
         return orderClientService.getAllOrders()

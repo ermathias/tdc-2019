@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class CustomerClientService {
 
-    private WebClientConfiguration webClientConfiguration;
+    private final WebClientConfiguration webClientConfiguration;
 
     public Mono<CustomerDTO> getCustomerById(Long customerId) {
         return webClientConfiguration.getCustomerWebClient()

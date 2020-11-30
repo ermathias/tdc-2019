@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class OrderHandler {
 
-    private OrderService orderService;
+    private final OrderService orderService;
 
     Mono<ServerResponse> getAllOrders(ServerRequest serverRequest) {
         return ServerResponse

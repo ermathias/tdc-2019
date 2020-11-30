@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderController {
 
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
     @GetMapping(value = "/orders")
     public ResponseEntity<List<CustomerOrder>> listAllOrders() {
