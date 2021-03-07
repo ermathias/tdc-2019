@@ -1,6 +1,7 @@
 package com.ermathias.example.customer;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@Slf4j
 public class CustomerController {
 
     private final CustomerRepository customerRepository;
@@ -23,6 +25,7 @@ public class CustomerController {
 
     @GetMapping(value = "/customers/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable("id") Long id) {
+        log.info("getting customer by id " + id);
         return ResponseEntity.ok(customerRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
 
